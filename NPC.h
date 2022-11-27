@@ -1,6 +1,8 @@
 #pragma once
 #include "Entity.h"
 
+class Map;
+
 class NPC : public Entity {
 protected:
 	int health;
@@ -8,5 +10,12 @@ protected:
 	int defence;
 
 public:
-	NPC();
+	NPC(Map* map);
+
+	void PerformAction();
+
+protected:
+	void Attack();
+
+	void HealAlly();
 };

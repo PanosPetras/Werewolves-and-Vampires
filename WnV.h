@@ -3,13 +3,16 @@
 #include "Entity.h"
 #include "Map.h"
 
+class Player;
+
 class WnV {
 private:
 	int quit;
 
 	int refreshRate;
 
-	std::vector<Entity> entities;
+	std::vector<Entity*> entities;
+	Player* player = NULL;
 
 	Map* map = NULL;
 
@@ -22,6 +25,12 @@ public:
 
 private:
 	void InitializeGame();
+
+	void InitializeEntities();
+
+	void GetRefreshRate();
+
+	void InitializeMap();
 
 	void Render();
 

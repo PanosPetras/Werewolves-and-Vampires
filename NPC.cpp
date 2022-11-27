@@ -1,7 +1,8 @@
 #include "NPC.h"
 #include <random>
+#include "Map.h"
 
-NPC::NPC(){
+NPC::NPC(Map* map) : Entity(map) {
     //Create a random device
     std::random_device dev;
     std::mt19937 rng(dev());

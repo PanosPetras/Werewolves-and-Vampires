@@ -3,6 +3,9 @@
 #include <Windows.h>
 #include <chrono>
 #include <thread>
+#include "Vampire.h"
+#include "Werewolf.h"
+#include "Player.h"
 
 using namespace std;
 using namespace std::chrono;
@@ -14,14 +17,32 @@ WnV::WnV(){
 }
 
 WnV::~WnV(){
+	delete player;
+
+	for (auto i : entities) {
+		delete i;
+	}
+
 	delete map;
 }
 
 void WnV::InitializeGame(){
+	GetRefreshRate();
+
+	InitializeMap();
+
+	HideCursor();
+
+	InitializeEntities();
+}
+
+void WnV::GetRefreshRate() {
 	//Ask for the desired refresh rate
 	cout << "Please enter the desired refresh rate of the game: ";
 	cin >> refreshRate;
+}
 
+void WnV::InitializeMap() {
 	//Ask for the dimensions of the map
 	int x, y;
 
@@ -33,11 +54,25 @@ void WnV::InitializeGame(){
 
 	//Initialize the map
 	map = new Map(x, y);
-
-	HideCursor();
 }
 
-void WnV::MainLoop(){
+void WnV::InitializeEntities()
+{
+	Entity* v;
+	for (int i = 0; i < map->GetWidth() * map->GetHeight() / 15; i++) {
+		v = new Vampire(map);
+		entities.push_back(v);
+	}
+
+	for (int i = 0; i < map->GetWidth() * map->GetHeight() / 15; i++) {
+		v = new Werewolf(map);
+		entities.push_back(v);
+	}
+
+	player = new Player(map);
+}
+
+void WnV::MainLoop() {
 	auto timeThen = high_resolution_clock::now();
 
 	while (!quit) {
@@ -62,7 +97,7 @@ void WnV::Render() {
 	map->Render();
 }
 
-void WnV::HandleInput(){
+void WnV::HandleInput() {
 	if (GetKeyState('Q') & 0x8000) {
 		Quit();
 	}
@@ -73,7 +108,7 @@ void WnV::Quit(){
 }
 
 //Code to show/hide cursor sourced from the answer of user VolAnd in the following thread: https://stackoverflow.com/questions/30126490/how-to-hide-console-cursor-in-c
-void WnV::HideCursor(){
+void WnV::HideCursor() {
 	HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
 	CONSOLE_CURSOR_INFO info;
 	info.dwSize = 100;
@@ -81,7 +116,7 @@ void WnV::HideCursor(){
 	SetConsoleCursorInfo(consoleHandle, &info);
 }
 
-void WnV::ShowCursor(){
+void WnV::ShowCursor() {
 	HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
 	CONSOLE_CURSOR_INFO info;
 	info.dwSize = 100;

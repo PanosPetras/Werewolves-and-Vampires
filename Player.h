@@ -3,7 +3,11 @@
 
 class Player : public Entity {
 public:
+	Player(Map* map);
+
+	void Move();
+
 	void HealTeam();
 
-	void Move(int x, int y);
+	char GetSymbol() const;
 };

@@ -127,10 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Entity.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="NPC.cpp" />
-    <ClCompile Include="test.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Vampire.cpp" />
+    <ClCompile Include="Werewolf.cpp" />
     <ClCompile Include="WnV.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -138,6 +141,8 @@
     <ClInclude Include="Map.h" />
     <ClInclude Include="NPC.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Vampire.h" />
+    <ClInclude Include="Werewolf.h" />
     <ClInclude Include="WnV.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
