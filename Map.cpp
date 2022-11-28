@@ -2,6 +2,7 @@
 #include "GameEntity.h"
 #include "Tree.h"
 #include "Lake.h"
+#include "PotionBoost.h"
 #include <iostream>
 
 using namespace std;
@@ -23,6 +24,8 @@ Map::~Map(){
 		delete me;
 	}
 
+	delete boost;
+
 	delete[] map;
 }
 
@@ -38,6 +41,9 @@ void Map::InitializeMap(){
 	for (int i = 0; i < width * height / 80; i++) {
 		mapObstacles.push_back(new Lake(this));
 	}
+
+	//Add the potion boost
+	boost = new PotionBoost(this);
 }
 
 void Map::Render() const{
@@ -131,6 +137,17 @@ void Map::RemoveEntity(const MapEntity* const entity) {
 }
 
 void Map::Tick() {
+	if (boost != NULL) {
+		if (boost->PerformAction()) {
+			delete boost;
+			boost = NULL;
+		}
+	}
+
+	DayNightCycle();
+}
+
+void Map::DayNightCycle() {
 	ticks++;
 
 	if (ticks > 12) {

@@ -134,6 +134,7 @@
     <ClCompile Include="MapEntity.cpp" />
     <ClCompile Include="NPC.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PotionBoost.cpp" />
     <ClCompile Include="Tree.cpp" />
     <ClCompile Include="Vampire.cpp" />
     <ClCompile Include="Werewolf.cpp" />
@@ -146,6 +147,7 @@
     <ClInclude Include="MapEntity.h" />
     <ClInclude Include="NPC.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PotionBoost.h" />
     <ClInclude Include="Tree.h" />
     <ClInclude Include="Vampire.h" />
     <ClInclude Include="Werewolf.h" />

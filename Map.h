@@ -4,6 +4,7 @@
 class MapEntity;
 class Tree;
 class Lake;
+class PotionBoost;
 
 typedef enum TimeOfDay { Day = 0, Night = 1 } TimeOfDay;
 
@@ -26,6 +27,7 @@ public:
 
 private:
 	std::vector<MapEntity*> mapObstacles;
+	PotionBoost* boost;
 	MapEntity** map;
 	void InitializeMap();
 
@@ -38,6 +40,8 @@ public:
 private:
 	int ticks;
 	TimeOfDay timeOfDay;
+
+	void DayNightCycle();
 
 public:
 	void Tick();

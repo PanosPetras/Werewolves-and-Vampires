@@ -98,8 +98,13 @@ void WnV::MainLoop() {
 			auto timeNow = high_resolution_clock::now();
 			auto elapsed = duration_cast<milliseconds>(timeNow - timeThen);
 
-			if (elapsed.count() < 1000.0 / refreshRate) {
-				int timeToSleep = (int)(1000.0 / refreshRate) - int(elapsed.count());
+			//if (elapsed.count() < 1000.0 / refreshRate) {
+			//	int timeToSleep = (int)(1000.0 / refreshRate) - int(elapsed.count());
+
+			//	this_thread::sleep_for(milliseconds(timeToSleep));
+			//}
+			if (elapsed.count() < 1000) {
+				int timeToSleep = 1000 - int(elapsed.count());
 
 				this_thread::sleep_for(milliseconds(timeToSleep));
 			}

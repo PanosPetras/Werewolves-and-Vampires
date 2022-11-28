@@ -16,4 +16,6 @@ public:
 
 private:
 	char team;
+
+	friend class PotionBoost;
 };

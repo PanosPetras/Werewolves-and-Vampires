@@ -59,6 +59,9 @@
     <ClCompile Include="Lake.cpp">
       <Filter>Entities\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="PotionBoost.cpp">
+      <Filter>Entities\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WnV.h">
@@ -89,6 +92,9 @@
       <Filter>Entities\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Lake.h">
+      <Filter>Entities\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PotionBoost.h">
       <Filter>Entities\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
