@@ -5,10 +5,6 @@
 std::function<void(NPC*)> NPC::deathFunc = NULL;
 
 NPC::NPC(Map* map) : GameEntity(map) {
-    //Create a random device
-    std::random_device dev;
-    std::mt19937 rng(dev());
-
     //Generate a random number between 2 and 8 for the health stat of the entity
     std::uniform_int_distribution<std::mt19937::result_type> dist(2, 8);
     maxHealth = health = dist(rng);
@@ -53,13 +49,8 @@ void NPC::GetHealed() {
 
 void NPC::Attack(NPC* other) const {
     if (other->defence < this->attack) {
-        //Create a random device
-        std::random_device dev;
-        std::mt19937 rng(dev());
-
         //Generate a random number that is between 0 and 1
         std::uniform_int_distribution<std::mt19937::result_type> dist(0, 1);
-
         //If we get a 1, we attack
         if (dist(rng) == 1) {
             other->GetAttacked(attack);
@@ -82,10 +73,6 @@ void NPC::HealAlly(NPC* other) {
     if (potions <= 0) return;
     //Check if the other entity is lower than max health
     if (other->health < other->maxHealth) return;
-
-    //Create a random device
-    std::random_device dev;
-    std::mt19937 rng(dev());
 
     //Generate a random number that is between 0 and 2
     std::uniform_int_distribution<std::mt19937::result_type> dist(0, 2);

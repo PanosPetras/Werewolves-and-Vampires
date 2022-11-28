@@ -13,20 +13,14 @@ Vampire::~Vampire() {
 }
 
 void Vampire::Move(){
-    //Create a random device
-    std::random_device dev;
-    std::mt19937 rng(dev());
-
     //Generate a random movement vector
     std::uniform_int_distribution<std::mt19937::result_type> dist(0, 2);
 
-    int px, py;
-    do {
-        px = x + dist(rng) - 1;
-        py = y + dist(rng) - 1;
-    } while (!map->IsPositionValid(px, py));
-
-    map->MoveEntity(*this, px, py);
+    int px = px = x + dist(rng) - 1, py = y + dist(rng) - 1;
+        
+    if (map->IsPositionValid(px, py)) {
+        map->MoveEntity(*this, px, py);
+    }
 }
 
 char Vampire::GetSymbol() const{

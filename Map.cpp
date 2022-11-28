@@ -35,10 +35,10 @@ void Map::InitializeMap(){
 	}
 
 	//Add obstacles
-	for (int i = 0; i < width * height / 50; i++) {
+	for (int i = 0; i < width * height / 40; i++) {
 		mapObstacles.push_back(new Tree(this));
 	}
-	for (int i = 0; i < width * height / 80; i++) {
+	for (int i = 0; i < width * height / 70; i++) {
 		mapObstacles.push_back(new Lake(this));
 	}
 

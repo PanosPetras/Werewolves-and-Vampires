@@ -1,4 +1,5 @@
 #pragma once
+#include <random>
 
 class Map;
 
@@ -8,6 +9,10 @@ protected:
 	int x, y;
 
 	Map* map;
+
+	//Create a random device
+	static inline std::random_device dev;
+	static inline std::mt19937 rng = std::mt19937(dev());
 
 public:
 	MapEntity(Map* map);

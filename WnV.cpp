@@ -42,9 +42,9 @@ void WnV::InitializeGame(){
 void WnV::GetRefreshRate() {
 	//Ask for the desired refresh rate
 	do {
-		cout << "Please enter the desired refresh rate of the game(< 100): ";
+		cout << "Please enter the desired refresh rate of the game(<= 200): ";
 		cin >> refreshRate;
-	} while (refreshRate <= 0 || refreshRate >= 100);
+	} while (refreshRate <= 0 || refreshRate > 200);
 }
 
 void WnV::InitializeMap() {
