@@ -1,7 +1,7 @@
-
 #include "WnV.h"
 #include <iostream>
 #include <Windows.h>
+#include <stdlib.h>
 #include <chrono>
 #include <thread>
 #include "Vampire.h"
@@ -41,8 +41,10 @@ void WnV::InitializeGame(){
 
 void WnV::GetRefreshRate() {
 	//Ask for the desired refresh rate
-	cout << "Please enter the desired refresh rate of the game: ";
-	cin >> refreshRate;
+	do {
+		cout << "Please enter the desired refresh rate of the game(< 100): ";
+		cin >> refreshRate;
+	} while (refreshRate <= 0 || refreshRate >= 100);
 }
 
 void WnV::InitializeMap() {
@@ -85,12 +87,7 @@ void WnV::MainLoop() {
 	auto timeThen = high_resolution_clock::now();
 
 	while (!quit) {
-		//Get input from the user
-		HandleInput();
-
 		if (!paused) {
-			Tick();
-
 			//Draw the map and it's entities
 			Render();
 
@@ -98,18 +95,20 @@ void WnV::MainLoop() {
 			auto timeNow = high_resolution_clock::now();
 			auto elapsed = duration_cast<milliseconds>(timeNow - timeThen);
 
-			//if (elapsed.count() < 1000.0 / refreshRate) {
-			//	int timeToSleep = (int)(1000.0 / refreshRate) - int(elapsed.count());
-
-			//	this_thread::sleep_for(milliseconds(timeToSleep));
-			//}
-			if (elapsed.count() < 1000) {
-				int timeToSleep = 1000 - int(elapsed.count());
+			if (elapsed.count() < 1000.0 / refreshRate) {
+				int timeToSleep = (int)(1000.0 / refreshRate) - int(elapsed.count());
 
 				this_thread::sleep_for(milliseconds(timeToSleep));
 			}
 
 			timeThen = high_resolution_clock::now();
+		}
+
+		//Get input from the user
+		HandleInput();
+
+		if (!paused) {
+			Tick();
 		}
 	}
 }
@@ -203,12 +202,7 @@ void WnV::DeleteNPC(NPC* npc) {
 		entities.erase(obj);
 	}
 
-	//Make sure that the destructor is called
-	if (npc->GetSymbol() == 'V') {
-		delete (Vampire*)npc;
-	} else {
-		delete (Werewolf*)npc;
-	}
+	delete npc;
 
 	//If the number of one of the two teams has reached zero, end the game
 	if (Werewolf::GetWerewolfCount() <= 0 || Vampire::GetVampireCount() <= 0) {
@@ -233,6 +227,5 @@ void WnV::EndGame() {
 	}
 
 	//Wait for user input so that the console window does not disappear
-	std::string s;
-	cin >> s;
+	system("pause");
 }
