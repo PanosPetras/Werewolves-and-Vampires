@@ -1,6 +1,5 @@
 #include "MapEntity.h"
 #include "Map.h"
-#include<cstdlib>
 
 MapEntity::MapEntity(Map* map) {
     //Cache the pointer to the map

@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <chrono>
 #include <thread>
+#include "Map.h"
 #include "Vampire.h"
 #include "Werewolf.h"
 #include "Player.h"

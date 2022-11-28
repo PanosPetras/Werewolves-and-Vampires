@@ -1,9 +1,9 @@
 #pragma once
 #include <vector>
-#include "NPC.h"
-#include "Map.h"
 
 class Player;
+class NPC;
+class Map;
 
 class WnV {
 private:
