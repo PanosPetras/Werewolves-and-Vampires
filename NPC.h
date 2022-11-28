@@ -20,6 +20,8 @@ public:
 
 	static void ChangeDeathFunc(std::function<void(NPC*)> df);
 
+	void GetHealed();
+
 protected:
 	void Attack(NPC* other) const;
 

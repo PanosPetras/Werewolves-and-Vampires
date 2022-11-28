@@ -45,6 +45,12 @@ void NPC::ChangeDeathFunc(std::function<void(NPC*)> df) {
     deathFunc = df;
 }
 
+void NPC::GetHealed() {
+    if (health < maxHealth) {
+        health++;
+    }
+}
+
 void NPC::Attack(NPC* other) const {
     if (other->defence < this->attack) {
         //Create a random device
@@ -86,7 +92,7 @@ void NPC::HealAlly(NPC* other) {
 
     //If we get a 1, we heal our ally
     if (dist(rng) == 1) {
-        other->health += 1;
+        other->GetHealed();
         potions--;
     }
 }

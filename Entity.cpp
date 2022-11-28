@@ -17,11 +17,16 @@ Entity::Entity(Map* map) {
         x = dist1(rng), y = dist2(rng);
     } while (!map->IsPositionValid(x, y));
 
+    //Add this entity to the map
     map->AddEntity(this);
 }
 
 Entity::~Entity() {
     map->RemoveEntity(this);
+}
+
+int Entity::GetPotions() const {
+    return potions;
 }
 
 int Entity::GetX() const{

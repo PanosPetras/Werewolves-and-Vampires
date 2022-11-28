@@ -1,9 +1,18 @@
 #include "Player.h"
 #include <Windows.h>
 #include "Map.h"
+#include "NPC.h"
+#include <iostream>
 
 Player::Player(Map* map) : Entity(map) {
+	//Initialize the player's potions
 	potions = 1;
+
+	//Prompt the player to choose which team he will support
+	do {
+		std::cout << "Choose your side(V or W): ";
+		std::cin >> team;
+	} while (team != 'V' && team != 'W');
 }
 
 void Player::Move() {
@@ -21,7 +30,19 @@ void Player::Move() {
 	}
 }
 
-void Player::HealTeam() {
+void Player::HealTeam(std::vector<NPC*>& vec) {
+	//Check that it is the right time of the day
+	if ((team == 'V' && map->GetTimeOfDay() == Day) || 
+		(team == 'W' && map->GetTimeOfDay() == Night)) {
+		potions--;
+
+		//Heal all the members of the player's team
+		for (auto e : vec) {
+			if (e->GetSymbol() == team) {
+				e->GetHealed();
+			}
+		}
+	}
 }
 
 char Player::GetSymbol() const {

@@ -114,6 +114,9 @@ void WnV::Render() {
 
 	//Render the map
 	map->Render();
+
+	//Print the potions that the player has left
+	cout << endl << "Potions: " << player->GetPotions() << endl;
 }
 
 void WnV::HandleInput() {
@@ -131,8 +134,8 @@ void WnV::HandleInput() {
 	if (!paused) {
 		player->Move();
 
-		if (GetKeyState('U') & 0x8000) {
-			player->HealTeam();
+		if (GetKeyState('F') & 0x8000) {
+			player->HealTeam(entities);
 		}
 	}
 }

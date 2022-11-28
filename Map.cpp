@@ -27,7 +27,13 @@ void Map::InitializeMap(){
 }
 
 void Map::Render() const{
-	cout << "  ";
+	if (timeOfDay == Day) {
+		cout << "Day" << endl;
+	} else {
+		cout << "Night" << endl;
+	}
+
+	cout << endl << "  ";
 
 	for (int i = 0; i < width; i++) {
 		cout << (char)('A' + i);
@@ -113,7 +119,7 @@ void Map::RemoveEntity(const Entity* const entity) {
 void Map::Tick() {
 	ticks++;
 
-	if (ticks >= 10) {
+	if (ticks > 12) {
 		ticks = 0;
 		timeOfDay = (TimeOfDay)(!timeOfDay);
 	}
