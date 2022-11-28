@@ -32,7 +32,7 @@
     <ClCompile Include="Map.cpp">
       <Filter>General Classes\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Entity.cpp">
+    <ClCompile Include="GameEntity.cpp">
       <Filter>Entities\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="NPC.cpp">
@@ -53,6 +53,12 @@
     <ClCompile Include="MapEntity.cpp">
       <Filter>Entities\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Tree.cpp">
+      <Filter>Entities\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Lake.cpp">
+      <Filter>Entities\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WnV.h">
@@ -61,7 +67,7 @@
     <ClInclude Include="Map.h">
       <Filter>General Classes\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Entity.h">
+    <ClInclude Include="GameEntity.h">
       <Filter>Entities\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="NPC.h">
@@ -77,6 +83,12 @@
       <Filter>Entities\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MapEntity.h">
+      <Filter>Entities\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tree.h">
+      <Filter>Entities\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Lake.h">
       <Filter>Entities\Header Files</Filter>
     </ClInclude>
   </ItemGroup>

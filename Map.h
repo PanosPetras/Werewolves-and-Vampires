@@ -2,6 +2,8 @@
 #include <vector>
 
 class MapEntity;
+class Tree;
+class Lake;
 
 typedef enum TimeOfDay { Day = 0, Night = 1 } TimeOfDay;
 
@@ -23,6 +25,7 @@ public:
 	void RemoveEntity(const MapEntity* const entity);
 
 private:
+	std::vector<MapEntity*> mapObstacles;
 	MapEntity** map;
 	void InitializeMap();
 

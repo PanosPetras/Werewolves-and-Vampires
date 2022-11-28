@@ -1,5 +1,7 @@
 #include "Map.h"
-#include "Entity.h"
+#include "GameEntity.h"
+#include "Tree.h"
+#include "Lake.h"
 #include <iostream>
 
 using namespace std;
@@ -17,12 +19,24 @@ Map::Map(int width, int height){
 
 Map::~Map(){
 	//Free all the memory that we allocated
+	for (auto me : mapObstacles) {
+		delete me;
+	}
+
 	delete[] map;
 }
 
 void Map::InitializeMap(){
 	for (int i = 0; i < width * height; i++) {
 		map[i] = NULL;
+	}
+
+	//Add obstacles
+	for (int i = 0; i < width * height / 50; i++) {
+		mapObstacles.push_back(new Tree(this));
+	}
+	for (int i = 0; i < width * height / 80; i++) {
+		mapObstacles.push_back(new Lake(this));
 	}
 }
 

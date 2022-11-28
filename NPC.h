@@ -1,5 +1,5 @@
 #pragma once
-#include "Entity.h"
+#include "GameEntity.h"
 #include <functional>
 
 class Map;

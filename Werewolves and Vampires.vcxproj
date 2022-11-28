@@ -127,22 +127,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="GameEntity.cpp" />
+    <ClCompile Include="Lake.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="MapEntity.cpp" />
     <ClCompile Include="NPC.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Tree.cpp" />
     <ClCompile Include="Vampire.cpp" />
     <ClCompile Include="Werewolf.cpp" />
     <ClCompile Include="WnV.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Entity.h" />
+    <ClInclude Include="GameEntity.h" />
+    <ClInclude Include="Lake.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="MapEntity.h" />
     <ClInclude Include="NPC.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Tree.h" />
     <ClInclude Include="Vampire.h" />
     <ClInclude Include="Werewolf.h" />
     <ClInclude Include="WnV.h" />
