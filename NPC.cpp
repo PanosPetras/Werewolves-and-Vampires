@@ -4,7 +4,7 @@
 
 std::function<void(NPC*)> NPC::deathFunc = NULL;
 
-NPC::NPC(Map* map) : Entity(map) {
+NPC::NPC(Map* map) : GameEntity(map) {
     //Create a random device
     std::random_device dev;
     std::mt19937 rng(dev());

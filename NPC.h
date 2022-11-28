@@ -4,7 +4,7 @@
 
 class Map;
 
-class NPC : public Entity {
+class NPC : public GameEntity {
 protected:
 	int maxHealth;
 	int health;

@@ -4,7 +4,7 @@
 #include "NPC.h"
 #include <iostream>
 
-Player::Player(Map* map) : Entity(map) {
+Player::Player(Map* map) : GameEntity(map) {
 	//Initialize the player's potions
 	potions = 1;
 
@@ -31,15 +31,18 @@ void Player::Move() {
 }
 
 void Player::HealTeam(std::vector<NPC*>& vec) {
-	//Check that it is the right time of the day
-	if ((team == 'V' && map->GetTimeOfDay() == Day) || 
-		(team == 'W' && map->GetTimeOfDay() == Night)) {
-		potions--;
+	//Check if the player has enough potions
+	if (potions > 0) {
+		//Check that it is the right time of the day
+		if ((team == 'V' && map->GetTimeOfDay() == Day) ||
+			(team == 'W' && map->GetTimeOfDay() == Night)) {
+			potions--;
 
-		//Heal all the members of the player's team
-		for (auto e : vec) {
-			if (e->GetSymbol() == team) {
-				e->GetHealed();
+			//Heal all the members of the player's team
+			for (auto e : vec) {
+				if (e->GetSymbol() == team) {
+					e->GetHealed();
+				}
 			}
 		}
 	}

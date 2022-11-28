@@ -4,7 +4,7 @@
 
 class NPC;
 
-class Player : public Entity {
+class Player : public GameEntity {
 public:
 	Player(Map* map);
 

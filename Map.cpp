@@ -11,7 +11,7 @@ Map::Map(int width, int height){
 	ticks = 0;
 	timeOfDay = Day;
 
-	map = new Entity*[width * height]();
+	map = new MapEntity*[width * height]();
 	InitializeMap();
 }
 
@@ -73,9 +73,9 @@ bool Map::IsPositionValid(int x, int y) const {
 	return true;
 }
 
-std::vector<Entity*> Map::GetAdjacentEntities(const Entity& entity) const{
-	std::vector<Entity*> vec;
-	Entity* ptr;
+std::vector<MapEntity*> Map::GetAdjacentEntities(const MapEntity& entity) const{
+	std::vector<MapEntity*> vec;
+	MapEntity* ptr;
 
 	int x = entity.GetX(), y = entity.GetY();
 
@@ -98,7 +98,7 @@ std::vector<Entity*> Map::GetAdjacentEntities(const Entity& entity) const{
 	return vec;
 }
 
-void Map::MoveEntity(Entity& entity, int x, int y) {
+void Map::MoveEntity(MapEntity& entity, int x, int y) {
 	if (!IsPositionValid(x, y)) return;
 
 	map[entity.GetX() + entity.GetY() * width] = NULL;
@@ -108,11 +108,11 @@ void Map::MoveEntity(Entity& entity, int x, int y) {
 	entity.y = y;
 }
 
-void Map::AddEntity(Entity* const entity){
+void Map::AddEntity(MapEntity* const entity){
 	map[entity->GetX() + entity->GetY() * width] = entity;
 }
 
-void Map::RemoveEntity(const Entity* const entity) {
+void Map::RemoveEntity(const MapEntity* const entity) {
 	map[entity->GetX() + entity->GetY() * width] = NULL;
 }
 

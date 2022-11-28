@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 
-class Entity;
+class MapEntity;
 
 typedef enum TimeOfDay { Day = 0, Night = 1 } TimeOfDay;
 
@@ -14,16 +14,16 @@ public:
 
 	bool IsPositionValid(int x, int y) const;
 
-	std::vector<Entity*> GetAdjacentEntities(const Entity& entity) const;
+	std::vector<MapEntity*> GetAdjacentEntities(const MapEntity& entity) const;
 
-	void MoveEntity(Entity& entity, int x, int y);
+	void MoveEntity(MapEntity& entity, int x, int y);
 
-	void AddEntity(Entity* const entity);
+	void AddEntity(MapEntity* const entity);
 
-	void RemoveEntity(const Entity* const entity);
+	void RemoveEntity(const MapEntity* const entity);
 
 private:
-	Entity** map;
+	MapEntity** map;
 	void InitializeMap();
 
 	int width, height;

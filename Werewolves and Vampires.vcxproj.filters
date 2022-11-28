@@ -50,6 +50,9 @@
     <ClCompile Include="main.cpp">
       <Filter>Main</Filter>
     </ClCompile>
+    <ClCompile Include="MapEntity.cpp">
+      <Filter>Entities\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WnV.h">
@@ -71,6 +74,9 @@
       <Filter>Entities\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Werewolf.h">
+      <Filter>Entities\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MapEntity.h">
       <Filter>Entities\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
