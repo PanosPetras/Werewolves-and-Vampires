@@ -1,17 +1,18 @@
 #pragma once
 #include <vector>
-#include "Entity.h"
+#include "NPC.h"
 #include "Map.h"
 
 class Player;
 
 class WnV {
 private:
-	int quit;
+	bool quit;
+	bool paused;
 
-	int refreshRate;
+	double refreshRate;
 
-	std::vector<Entity*> entities;
+	std::vector<NPC*> entities;
 	Player* player = NULL;
 
 	Map* map = NULL;
@@ -36,13 +37,17 @@ private:
 
 	void HandleInput();
 
+	void Tick();
+
 	void Pause();
 
-	void UnPause();
+	void Unpause();
 
 	void Quit();
 
 	void HideCursor();
 
-	void ShowCursor();
+	void DeleteNPC(NPC* npc);
+
+	void EndGame();
 };

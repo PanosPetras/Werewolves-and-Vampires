@@ -7,8 +7,11 @@ protected:
 
 public:
 	Vampire(Map* map);
+	~Vampire();
 
 	void Move();
 
 	char GetSymbol() const;
+
+	static int GetVampireCount();
 };

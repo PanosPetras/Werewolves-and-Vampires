@@ -8,11 +8,15 @@ Map::Map(int width, int height){
 	this->width = width;
 	this->height = height;
 
+	ticks = 0;
+	timeOfDay = Day;
+
 	map = new Entity*[width * height]();
 	InitializeMap();
 }
 
 Map::~Map(){
+	//Free all the memory that we allocated
 	delete[] map;
 }
 
@@ -31,8 +35,8 @@ void Map::Render() const{
 
 	cout << endl;
 
-	for (int i = 0; i < height; i++) {
-		printf("%2d", i);
+	for (int i = height - 1; i >= 0; i--) {
+		printf("%2d", i + 1);
 		for (int j = 0; j < width; j++) {
 			if (map[j + i * width] != NULL) {
 				cout << map[j + i * width]->GetSymbol();
@@ -44,23 +48,18 @@ void Map::Render() const{
 	}
 }
 
-int Map::GetWidth() const {
-	return width;
-}
-
-int Map::GetHeight() const {
-	return height;
-}
-
 bool Map::IsPositionValid(int x, int y) const {
-	if (x < 0 && x >= width) {
+	//Check if the position is within the x axis bounds
+	if (x < 0 || x >= width) {
 		return false;
 	}
 
-	if (y < 0 && y >= height) {
+	//Check if the position is within the y axis bounds
+	if (y < 0 || y >= height) {
 		return false;
 	}
 
+	//Check if the position is not already occupied
 	if (map[x + y * width] != NULL) {
 		return false;
 	}
@@ -109,4 +108,25 @@ void Map::AddEntity(Entity* const entity){
 
 void Map::RemoveEntity(const Entity* const entity) {
 	map[entity->GetX() + entity->GetY() * width] = NULL;
+}
+
+void Map::Tick() {
+	ticks++;
+
+	if (ticks >= 10) {
+		ticks = 0;
+		timeOfDay = (TimeOfDay)(!timeOfDay);
+	}
+}
+
+int Map::GetWidth() const {
+	return width;
+}
+
+int Map::GetHeight() const {
+	return height;
+}
+
+TimeOfDay Map::GetTimeOfDay() const {
+	return timeOfDay;
 }

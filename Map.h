@@ -3,12 +3,9 @@
 
 class Entity;
 
+typedef enum TimeOfDay { Day = 0, Night = 1 } TimeOfDay;
+
 class Map final {
-private:
-	Entity** map;
-
-	void InitializeMap();
-
 public:
 	Map(int width, int height);
 	~Map();
@@ -26,9 +23,21 @@ public:
 	void RemoveEntity(const Entity* const entity);
 
 private:
+	Entity** map;
+	void InitializeMap();
+
 	int width, height;
 
 public:
 	int GetWidth() const;
 	int GetHeight() const;
+
+private:
+	int ticks;
+	TimeOfDay timeOfDay;
+
+public:
+	void Tick();
+
+	TimeOfDay GetTimeOfDay() const;
 };

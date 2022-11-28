@@ -7,8 +7,11 @@ protected:
 
 public:
 	Werewolf(Map* map);
+	~Werewolf();
 
 	void Move();
 
 	char GetSymbol() const;
+
+	static int GetWerewolfCount();
 };

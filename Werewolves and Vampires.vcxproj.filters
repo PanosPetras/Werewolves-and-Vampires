@@ -1,62 +1,77 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="Entities">
+      <UniqueIdentifier>{922367a0-c30f-4f60-ad5a-9a6b9909aaae}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files">
+    <Filter Include="Entities\Header Files">
+      <UniqueIdentifier>{48896731-7f81-451e-9c2b-cfd3c735d2b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entities\Source Files">
+      <UniqueIdentifier>{afdedcbb-f1a2-4e81-afda-9df8af0d731a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="General Classes">
+      <UniqueIdentifier>{e582b692-bc4b-4aee-8ccc-e0f1506ea3b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="General Classes\Header Files">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
+    <Filter Include="General Classes\Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Main">
+      <UniqueIdentifier>{f53f8eff-7c6d-4c86-851d-7e7ed4878e20}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="WnV.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>General Classes\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Map.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="NPC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Vampire.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Werewolf.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>General Classes\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Entity.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Entities\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NPC.cpp">
+      <Filter>Entities\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Entities\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Vampire.cpp">
+      <Filter>Entities\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Werewolf.cpp">
+      <Filter>Entities\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Main</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Entity.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="WnV.h">
-      <Filter>Header Files</Filter>
+      <Filter>General Classes\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Map.h">
-      <Filter>Header Files</Filter>
+      <Filter>General Classes\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Entity.h">
+      <Filter>Entities\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="NPC.h">
-      <Filter>Header Files</Filter>
+      <Filter>Entities\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Werewolf.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Player.h">
+      <Filter>Entities\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Vampire.h">
-      <Filter>Header Files</Filter>
+      <Filter>Entities\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Werewolf.h">
+      <Filter>Entities\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
