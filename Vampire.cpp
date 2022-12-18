@@ -16,7 +16,7 @@ void Vampire::Move(){
     //Generate a random movement vector
     std::uniform_int_distribution<std::mt19937::result_type> dist(0, 2);
 
-    int px = px = x + dist(rng) - 1, py = y + dist(rng) - 1;
+    int px = x + dist(rng) - 1, py = y + dist(rng) - 1;
         
     if (map->IsPositionValid(px, py)) {
         map->MoveEntity(*this, px, py);

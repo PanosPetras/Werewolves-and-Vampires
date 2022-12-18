@@ -14,6 +14,8 @@ public:
 
 	char GetSymbol() const;
 
+	char GetTeam() const;
+
 private:
 	char team;
 

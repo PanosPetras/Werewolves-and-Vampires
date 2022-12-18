@@ -119,11 +119,15 @@ std::vector<MapEntity*> Map::GetAdjacentEntities(const MapEntity& entity) const{
 }
 
 void Map::MoveEntity(MapEntity& entity, int x, int y) {
+	//Make sure that the position given is within bounds
 	if (!IsPositionValid(x, y)) return;
 
+	//Clear the previous location of the entity
 	map[entity.GetX() + entity.GetY() * width] = NULL;
+	//Show the new position of the entity
 	map[x + y * width] = &entity;
 
+	//Change the entity's coordinates
 	entity.x = x;
 	entity.y = y;
 }
@@ -150,6 +154,7 @@ void Map::Tick() {
 void Map::DayNightCycle() {
 	ticks++;
 
+	//Every 12 ticks switch between night and day
 	if (ticks > 12) {
 		ticks = 0;
 		timeOfDay = (TimeOfDay)(!timeOfDay);

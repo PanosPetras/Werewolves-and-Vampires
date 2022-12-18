@@ -13,6 +13,8 @@ bool PotionBoost::PerformAction() {
 	auto vec = map->GetAdjacentEntities(*this);
 
 	for (auto e : vec) {
+		//If the player is next to this potion, then 
+		//return true and add a potion to the player's potion count
 		if (e->GetSymbol() == 'P') {
 			((Player*)e)->potions++;
 			return true;

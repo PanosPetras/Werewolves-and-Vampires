@@ -52,17 +52,22 @@ void WnV::InitializeMap() {
 	//Ask for the dimensions of the map
 	int x, y;
 
-	cout << "Please enter the desired width of the map: ";
-	cin >> x;
-
-	cout << "Please enter the desired height of the map: ";
-	cin >> y;
+	do {
+		cout << "Please enter the desired width of the map[5,24]: ";
+		cin >> x;
+	} while (!(x >= 5 && x <= 24));
+	
+	do {
+		cout << "Please enter the desired height of the map[5,24]: ";
+		cin >> y;
+	} while (!(y >= 5 && y <= 24));
 
 	//Initialize the map
 	map = new Map(x, y);
 }
 
 void WnV::InitializeEntities() {
+	//Pass on the function to destroy entities
 	std::function<void(NPC*)> func = std::bind(&WnV::DeleteNPC, this, std::placeholders::_1);
 	NPC::ChangeDeathFunc(func);
 
@@ -165,7 +170,9 @@ void WnV::Pause() {
 		//Clear the screen
 		system("cls");
 
-		cout << "The game is now paused." << endl << endl << 
+		cout << "The game is now paused." << endl << endl <<
+			"Your team: " << player->GetTeam() << endl <<
+			"Your potions: " << player->GetPotions() << endl << endl <<
 			"Vampires alive: " << Vampire::GetVampireCount() << endl << 
 			"Werewolves alive: " << Werewolf::GetWerewolfCount() << endl << endl << 
 			"Controls:" << endl <<

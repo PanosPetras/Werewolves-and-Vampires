@@ -51,3 +51,7 @@ void Player::HealTeam(std::vector<NPC*>& vec) {
 char Player::GetSymbol() const {
 	return 'P';
 }
+
+char Player::GetTeam() const {
+	return team;
+}
